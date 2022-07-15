@@ -97,6 +97,11 @@ class Special(commands.Cog):
             user = ctx.guild.get_member(int(key[:-4]))
             username = user.name + "#" + user.discriminator
             if len(value) > 0:
+                file = discord.File(outpath + key)
+                e = discord.Embed()
+                e.set_image(url="attachment://" + outpath + key)
+                await ctx.send(file = file, embed = e)
+
                 count_anime = count_anime + 1
                 await ctx.send(username + " uses anime pfp with confidence " + str(value[0]["score"] * 100) + "%")
             print('Key : ' + str(key) + ', Value : ' + str(value))
