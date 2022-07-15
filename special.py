@@ -37,6 +37,10 @@ class Special(commands.Cog):
     @commands.command(aliases=[])
     async def frakawaii(self, ctx):
         imgpath = "img_" + str(ctx.guild.id) + "/"
+        outpath = "output_" + imgpath
+        if not os.path.exists(outpath):
+            os.makedirs(outpath)
+
         await self.load_images(ctx)
 
         assert os.path.exists(imgpath), 'The input path does not exists'
@@ -82,8 +86,11 @@ class Special(commands.Cog):
             result[os.path.basename(file)] = []
             for i in range(scores.shape[0]):
                 x1, y1, x2, y2 = boxes[i, :].tolist()
+                cv2.rectangle(img, (int(x1), int(y1)), (int(x2), int(y2)), (0, 0, 255), 2)
                 new_result = {'score': float(scores[i])}
                 result[os.path.basename(file)].append(new_result)
+
+            cv2.imwrite(outpath + os.path.basename(file), cropped_image)
 
         count_anime = 0
         for key, value in result.items():
