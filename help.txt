@@ -1,0 +1,10 @@
+---
+{leaderboard}(lb, leaderboard)
+leaderboard of everyone in server cuz owo bot is fking dumb
+--
+*adduser [user]
+Adds user to leaderboard database.
+--
+*removeuser [user]
+Removes user from leaderboard database.
+--
