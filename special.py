@@ -90,7 +90,7 @@ class Special(commands.Cog):
                 new_result = {'score': float(scores[i])}
                 result[os.path.basename(file)].append(new_result)
 
-            cv2.imwrite(outpath + os.path.basename(file), cropped_image)
+            cv2.imwrite(outpath + os.path.basename(file), img)
 
         count_anime = 0
         for key, value in result.items():
