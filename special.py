@@ -18,7 +18,6 @@ import cv2
 class Special(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        os.environ["DISCORD_TOKEN"] = "OTk2OTcwMzQ1Mjk2ODIyMzYy.GgL2yM.Q-7PG3F2tigt78VnQw28MN2_ToxpedB3IGBCPI"
 
     @commands.command(aliases=[])
     async def load_images(self, ctx):
